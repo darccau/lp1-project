@@ -3,12 +3,8 @@
 
 Load_csv::Load_csv(std::string file_path) {
   m_file_path = file_path;
-  m_file_content = "";
-  std::cout << m_file_path << std::endl;
-}
-
-void Load_csv::load_file() {
-  std::cout << "testing" << std::endl;
+  m_file_content = "test";
+  std::cout << m_file_content << std::endl;
 }
 
 void Load_csv::check_file_heath() {
@@ -16,6 +12,16 @@ void Load_csv::check_file_heath() {
     std::cout << "[!] Error at opening file" << std::endl;
     exit(1);
   }
+}
+
+void Load_csv::load_file() {
+  check_file_heath();
+
+  m_file_reader.open(m_file_path);
+
+  while (std::getline(m_file_reader, m_file_content))
+
+  m_file_reader.close();
 }
 
 // const std::string crime_db = "../data/crimedb.csv";
