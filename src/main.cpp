@@ -12,9 +12,9 @@ int main(int argc, char ** argv) {
   Load_csv loader(crimedb_file_path);
 
   loader.load_file();
-  std::cout << loader.m_file_content << std::endl;
 
 
+  std::cout << loader.get_file_content() << std::endl;
   // crime.sample();
   // dna_query.sample();
 

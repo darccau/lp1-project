@@ -12,11 +12,11 @@ private:
   std::fstream m_file_reader;
 
 public:
-  std::string m_file_content;
+  std::stringstream m_file_content;
   Load_csv(std::string);
   void check_file_heath(void);
   void load_file(void);
-  // void content(void);
+  std::string get_file_content();
 };
 
 
