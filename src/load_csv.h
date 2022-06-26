@@ -13,12 +13,11 @@ private:
 
 public:
   std::stringstream m_file_content;
-  Load_csv(std::string);
+  Load_csv();
+  void set_file_path(std::string file_path);
   void check_file_heath(void);
-  void load_file(void);
-  std::string get_file_content();
+  void load(void);
+  // std::stringstream get_file_content();
 };
-
-
 
 #endif
