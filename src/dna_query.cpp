@@ -1,45 +1,71 @@
-#include "dna_query.h"
+#include "../include/dna_query.h"
+#include "../include/load_database.h"
 
-DNA_query::DNA_query(std::string file_path) {
-  m_file_loader.set_file_path(file_path);
-  m_file_loader.load();
-  
-  std::string sample1;
-  std::string sample2;
-  std::string sample3;
 
-  m_file_loader.m_file_content >> sample1;
-  m_file_loader.m_file_content >> sample2;
-  m_file_loader.m_file_content >> sample3;
+struct dna_structure {
+  std::string id;        
+  std::string raw_data;   
+  std::string strs;       
+};
 
-  std::cout << sample1 << std::endl;
-  std::cout << sample2 << std::endl;
-  std::cout << sample3 << std::endl;
 
+DNA_query::DNA_query()
+{/* */}
+
+DNA_query::DNA_query(std::string database_path) {
+  // parse_dna(database_path);
+  // Load_database loader(m_database_path);
+  // add_dna();
+  m_database_path = database_path;
+  std::cout << m_database_path << std::endl;
+  add_dna();
 }
 
-void DNA_query::add_dna() {
-  std::string sample = "sample";
+// void DNA_query::update_database() {
+// }
 
-  m_file_writer.open("database.txt");
+// void DNA_query::parse_dna(std::string dna) {
+  // struct dna_structure dna; 
+  // 
+  // loader.m_raw_data >> dna.id;
+  // loader.m_raw_data >> dna.raw_data;
+  //
+  // std::cout << loader.m_raw_data.wkkkkkkkkkkkktr() << std::endl;
+// }
+
+//TODO Pegar o resultado do menu
+// std::string DNA_query::craft_dna() {
+//   struct dna_structure new_dna;
+//   new_dna.id = "sample-id";
+//   new_dna.raw_data = "sample-raw_data";
+//   new_dna.strs = "sample-strs";
+//
+//   return "sample";
+// }
+
+void DNA_query::add_dna(void) {
+  std::string sample = "Amanda, AGACGGGTTACCATGACTATCTATCTATCTATCTATCTATCTATCTATCACGTACGTACGTATCGAGATAGATAGATAGATAGATCCTCGACTTCGATCGCAATGAATGCCAATAGACAAAA, AGAT:6 AATG:2 TATC:8\n";
+
+  m_file_writer.open(m_database_path, std::ios_base::app);
 
   m_file_writer << sample;
-  
+
   m_file_writer.close();
 }
 
 
-void DNA_query::del_dna() {
+void DNA_query::del_dna(void) {
   std::cout << "del_dna" << std::endl;
 }
 
 
-void DNA_query::proc_dna_str() {
+void DNA_query::proc_dna_str(void) {
   std::cout << "prc_dna_str" << std::endl;
 }
 
 
-void DNA_query::del_dna_str() {
+void DNA_query::del_dna_str(void) {
   std::cout << "del_dna_str" << std::endl;
 }
+
 
