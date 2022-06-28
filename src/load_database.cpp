@@ -1,5 +1,5 @@
+#include <algorithm>
 #include "../include/load_database.h"
-
 
 Load_database::Load_database()
 {/* */}
@@ -18,15 +18,14 @@ void Load_database::check_file_heath() {
 
 void Load_database::load() {
   check_file_heath();
-  std::string current_line;
+  std::string current_dna;
 
   m_file_reader.open(m_database_path);
 
-  current_line = "";
-
   while (m_file_reader.good()) {
-    std::getline(m_file_reader, current_line);
-    m_raw_data << current_line << "\n";
+    std::getline(m_file_reader, current_dna);
+    current_dna.erase(remove(current_dna.begin(), current_dna.end(), ','), current_dna.end());
+    m_raw_data << current_dna << "\n";
   }
 
   m_file_reader.close();

@@ -3,9 +3,9 @@
 
 
 struct dna_structure {
-  std::string id;        
-  std::string raw_data;   
-  std::string strs;       
+  std::string id;
+  std::string raw_data;
+  std::vector<std::string> strs;
 };
 
 
@@ -13,25 +13,35 @@ DNA_query::DNA_query()
 {/* */}
 
 DNA_query::DNA_query(std::string database_path) {
-  // parse_dna(database_path);
-  // Load_database loader(m_database_path);
-  // add_dna();
   m_database_path = database_path;
-  std::cout << m_database_path << std::endl;
-  add_dna();
+  Load_database loader(m_database_path);
+
+  parse_dna(loader.m_raw_data.str());
+
 }
 
 // void DNA_query::update_database() {
 // }
 
-// void DNA_query::parse_dna(std::string dna) {
-  // struct dna_structure dna; 
-  // 
-  // loader.m_raw_data >> dna.id;
-  // loader.m_raw_data >> dna.raw_data;
-  //
-  // std::cout << loader.m_raw_data.wkkkkkkkkkkkktr() << std::endl;
-// }
+void DNA_query::parse_dna(std::string dna_line) {
+  struct dna_structure dna;
+  // int counter;
+  std::stringstream split_dna(dna_line);
+  
+  split_dna >> dna.id;
+  split_dna >> dna.raw_data;
+
+  // counter = 0;
+  // while (split_dna >> dna.strs[counter]) {
+  //   counter++;
+  // }
+
+  std::cout << dna.id << std::endl;
+  std::cout << dna.raw_data << std::endl;
+  // std::cout << dna.strs[0] << std::endl;
+  // std::cout << dna.strs[1] << std::endl;
+  // std::cout << dna.strs[2] << std::endl;
+}
 
 //TODO Pegar o resultado do menu
 // std::string DNA_query::craft_dna() {
@@ -44,13 +54,9 @@ DNA_query::DNA_query(std::string database_path) {
 // }
 
 void DNA_query::add_dna(void) {
-  std::string sample = "Amanda, AGACGGGTTACCATGACTATCTATCTATCTATCTATCTATCTATCTATCACGTACGTACGTATCGAGATAGATAGATAGATAGATCCTCGACTTCGATCGCAATGAATGCCAATAGACAAAA, AGAT:6 AATG:2 TATC:8\n";
-
-  m_file_writer.open(m_database_path, std::ios_base::app);
-
-  m_file_writer << sample;
-
-  m_file_writer.close();
+  // m_file_writer.open(m_database_path, std::ios_base::app);
+  // m_file_writer << sample;
+  // m_file_writer.close();
 }
 
 

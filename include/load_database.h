@@ -11,9 +11,8 @@ class Load_database {
 private:
   std::string m_database_path;
   std::fstream m_file_reader;
-
-  void check_file_heath(void);
   void load(void);
+  void check_file_heath(void);
 
 public:
   std::stringstream m_raw_data;
