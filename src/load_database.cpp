@@ -1,4 +1,3 @@
-#include <algorithm>
 #include "../include/load_database.h"
 
 Load_database::Load_database()
@@ -24,7 +23,6 @@ void Load_database::load() {
 
   while (m_file_reader.good()) {
     std::getline(m_file_reader, current_dna);
-    current_dna.erase(remove(current_dna.begin(), current_dna.end(), ','), current_dna.end());
     m_raw_data << current_dna << "\n";
   }
 
