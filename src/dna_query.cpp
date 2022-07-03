@@ -58,6 +58,7 @@ void DNA_query::add_dna(std::string raw_dna) {
   update_database();
 
    for (auto dna : m_dna_database) {
+    
     // check insertion of duplicated id dna
     if (new_dna.id == dna.id) {
       std::cout << "[!] The current DNA inserted is alredy present on database" << std::endl;
@@ -67,15 +68,16 @@ void DNA_query::add_dna(std::string raw_dna) {
   m_dna_database.push_back(new_dna);
 }
 
-// void DNA_query::del_dna(std::string id) {
-//   for (unsigned int i = 0; i < m_dna_database.size(); i++) {
-//       if (m_dna_database[i].id == id) {
-//       std::cout << m_dna_database[i].id  << "       " << id << std::endl;
-//       return;
-//     }
-//   }
-//   std::cout << "[!] Has no identifier with the especified pattern" << std::endl;
-// }
+void DNA_query::del_dna(std::string id) {
+  for (unsigned int i = 0; i < m_dna_database.size(); i++) {
+    if (m_dna_database[i].id == id) {
+      m_dna_database.erase(m_dna_database.begin()+i);
+      return;
+    }
+  }
+  std::cout << "[!] Has no identifier with the especified pattern" << std::endl;
+  update_database();
+}
 
 void DNA_query::proc_dna_str(void) {
 }

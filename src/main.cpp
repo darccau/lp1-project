@@ -17,7 +17,7 @@ int main(int argc, char ** argv) {
   dna.add_dna("Dara, AGACGGGTTACCATGACTATCTATCTATCTATCTATCTATCTATCTATCACGTACGTACGTATCGAGATAGATAGATAGATAGATCCTCGACTTCGATCGCAATGAATGCCAATAGACAAAA, AGAT:6 AATG:2 TATC:8");
 
   dna.del_dna("Fofis");
-  // dna.show_db();
+  dna.show_db();
 
   // dna.get_loader().set_database_path(dnadb_file_path);
   // dna.get_loader().load();
