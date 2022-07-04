@@ -26,11 +26,11 @@ public:
   DNA_query(std::string database_path);
   dna_structure parse_dna(std::string dna_line);
   void show_db(void);
-  void update_database();
+  void update_database(void);
   void add_dna(std::string raw_dna);
   void del_dna(std::string id);
-  void proc_dna_str(void);
-  void del_dna_str(void);
+  void proc_dna_str(std::string id);
+  void del_dna_str(std::string id);
 };
 
 #endif 

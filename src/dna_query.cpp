@@ -65,6 +65,7 @@ void DNA_query::add_dna(std::string raw_dna) {
       return;
     }
   }
+
   m_dna_database.push_back(new_dna);
 }
 
@@ -79,11 +80,28 @@ void DNA_query::del_dna(std::string id) {
   update_database();
 }
 
-void DNA_query::proc_dna_str(void) {
+//TODO Implement that shit
+void DNA_query::proc_dna_str(std::string id) {
+  // unsigned int i;
+  // for (auto dna : m_dna_database) {
+  //   if (dna.id == id) {
+  //     for (i = 0; i < dna.raw_data.size(); ++4) {
+  //       std::cout << dna.raw_data.begin() << std::endl;
+  //     }
+  //   }
+  // }
 }
 
-void DNA_query::del_dna_str(void) {
+void DNA_query::del_dna_str(std::string id) {
+  unsigned int i;
 
+  // std::cout << m_dna_database[0].strs.size() << std::endl;
+  for (i = 0; i < m_dna_database.size(); i++) {
+    if (m_dna_database[i].id == id) {
+      m_dna_database[i].strs.clear();
+    }
+  }
+  update_database();
 }
 
 void DNA_query::show_db() {
@@ -93,9 +111,12 @@ void DNA_query::show_db() {
     new_dna_database << dna.id << " ";
     new_dna_database << dna.raw_data << " ";
 
-    for (auto str : dna.strs) {
-      new_dna_database << str << " ";
+    if (!dna.strs.empty()) {
+      for (auto str : dna.strs) {
+        new_dna_database << str << " ";
+      }
     }
+
     new_dna_database << "\n";
   }
 

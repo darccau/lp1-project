@@ -17,10 +17,10 @@ int main(int argc, char ** argv) {
   dna.add_dna("Dara, AGACGGGTTACCATGACTATCTATCTATCTATCTATCTATCTATCTATCACGTACGTACGTATCGAGATAGATAGATAGATAGATCCTCGACTTCGATCGCAATGAATGCCAATAGACAAAA, AGAT:6 AATG:2 TATC:8");
 
   dna.del_dna("Fofis");
+
+  // dna.proc_dna_str("Alicia");
+  dna.del_dna_str("Dara");
   dna.show_db();
 
-  // dna.get_loader().set_database_path(dnadb_file_path);
-  // dna.get_loader().load();
-  // std::cout << dna.get_loader().get_raw_data() << std::endl;
 
 } 
